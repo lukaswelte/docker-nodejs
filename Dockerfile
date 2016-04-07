@@ -2,7 +2,7 @@ FROM alpine:3.3
 MAINTAINER Lukas Welte "info@lukaswelte.de"
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION v5.10.0
+ENV NODE_VERSION v5.10.1
 
 RUN apk upgrade --update \
  && apk add curl make gcc g++ linux-headers paxctl musl-dev \
@@ -16,7 +16,7 @@ RUN apk upgrade --update \
  && make install \
  && paxctl -cm /usr/bin/node \
  && npm cache clean \
- && apk del linux-headers \
+ && apk del make gcc g++ python linux-headers \
  && rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
     /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
     /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html \
