@@ -1,8 +1,8 @@
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Lukas Welte "info@lukaswelte.de"
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION v6.3.0
+ENV NODE_VERSION v6.7.0
 
 RUN apk upgrade --update \
  && apk add curl make gcc g++ linux-headers paxctl musl-dev \
